@@ -46,7 +46,7 @@ public class CiudadTest {
         System.out.println("establecerNombre");
         String nom = "Loja";
         instance.establecerNombre(nom);
-        Field field = instance.getClass().getDeclaredField("nombre");
+        Field field = instance.getClass().getDeclaredField("nombres");
         field.setAccessible(true);
         assertEquals(field.get(instance), "Loja");
     }
@@ -54,9 +54,9 @@ public class CiudadTest {
     @Test
     public void testObtenerNombres() {
         System.out.println("obtenerNombre");
-        String nom = "Loja";
+        String nom = "Quito";
         instance.establecerNombre(nom);
-        assertEquals(instance.obtenerNombre(), "Loja");
+        assertEquals(instance.obtenerNombres(), "Quito");
     }
     
     @Test
@@ -82,12 +82,12 @@ public class CiudadTest {
     @Test
     public void testToString() {
         System.out.println("toString");
-        instance.establecerNombre("Cuenca");
+        instance.establecerNombre("Quito");
         instance.establecerPoblacion(500123);
         
         String expResult = String.format("Ciudad de Ecuador\n Nombre: %s\n\n\t"
                 + "Población: %d\n",
-                "Cuenca",
+                "Quito",
                 500123
                 );
         String result = instance.toString();
